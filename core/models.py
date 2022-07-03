@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Produto(models.Model):
@@ -9,6 +10,9 @@ class Produto(models.Model):
     def __str__(self):
         return f'{self.nome} - Estoque {self.estoque}'
 
+    class Meta:
+        db_table = "produto"
+
 
 class Cliente(models.Model):
     nome = models.CharField('Nome', max_length=100)
@@ -17,3 +21,6 @@ class Cliente(models.Model):
 
     def __str__(self):
         return self.nome + ' ' + self.sobrenome
+
+    class Meta:
+        db_table = "cliente"

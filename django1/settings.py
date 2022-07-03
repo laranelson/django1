@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-import dj_database_url # PRECISE COLOCAR PARA FAZER O DEPLOY
+import dj_database_url # PRECISEI COLOCAR PARA FAZER O DEPLOY
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -71,21 +71,21 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'django1.wsgi.application'
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+'''
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-
 #REMOVER AS DUAS LINHAS ABAIXO QUANDO FOR FAZER O DEPLOY
-#DATABASES = {}
-#DATABASES['default'] = dj_database_url.config()
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation

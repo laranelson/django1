@@ -1,0 +1,12 @@
+__pycache__
+.venv
+*.*_
+*.pyc
+*.idea
+*.log
+.env
+db.sqlite3
+.*__cache__
+.vccode
+local_settings.py
+

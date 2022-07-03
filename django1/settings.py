@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-import dj_database_url
+import dj_database_url # PRECISE COLOCAR PARA FAZER O DEPLOY
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u5h6qq7ce!wz9nuo9%7)q8npc-e+dcc3bt!0a(g&8hmpko8%=p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -72,12 +72,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django1.wsgi.application'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
+
+#REMOVER AS DUAS LINHAS ABAIXO QUANDO FOR FAZER O DEPLOY
+#DATABASES = {}
+#DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
